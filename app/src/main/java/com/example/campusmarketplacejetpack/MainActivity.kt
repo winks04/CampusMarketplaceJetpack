@@ -20,6 +20,7 @@ import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.Navigation
 import androidx.navigation.Navigator
 import androidx.navigation.compose.NavHost
@@ -27,6 +28,7 @@ import androidx.navigation.compose.composable
 import com.example.campusmarketplacejetpack.ui.theme.CampusMarketplaceJetpackTheme
 import com.google.android.filament.Box
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.selects.select
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,23 +75,25 @@ fun Navigation(navController: NavController){
     }
 }
 
-@Composable
-fun BottomNavigationBar(
-    item: List<BottomNavItem>,
-    navController: NavController,
-    modifier: Modifier = Modifier,
-    onItemClick: (BottomNavItem) -> Unit
-) {
-    BottomAppBar (
-        modifier = modifier,
-        containerColor = Color.DarkGray,
-        tonalElevation = 5.dp
-    ){
-        item.forEach(item->
-        BottomNavItem(selected))
-    }
+fun NavHost(navController: NavController, startDestination: String, builder: NavGraphBuilder.() -> Unit) {
 
 }
+
+//@Composable
+//fun BottomNavigationBar(
+//    item: List<BottomNavItem>,
+//    navController: NavController,
+//    modifier: Modifier = Modifier,
+//    onItemClick: (BottomNavItem) -> Unit
+//) {
+//    BottomAppBar (
+//        modifier = modifier,
+//        containerColor = Color.DarkGray,
+//        tonalElevation = 5.dp
+//    ){
+//        items }
+//    }
+//}
 
 
 @Composable
